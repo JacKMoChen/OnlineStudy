@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jack.course.ui.CourseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/teal_700"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="bottom"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/colorPrimaryText"
+            app:tabTextColor="@color/colorSecondaryText">
+
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_course_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableTint="@color/colorSecondaryText"
+            android:text="@string/course_all_type"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            app:drawableRightCompat="@drawable/ic_arrow_down"
+            app:layout_constraintEnd_toStartOf="@+id/tv_difficulty_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_course" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_difficulty_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableTint="@color/colorSecondaryText"
+            android:text="@string/course_all_difficulty"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            app:drawableRightCompat="@drawable/ic_arrow_down"
+            app:layout_constraintEnd_toStartOf="@+id/tv_price_type"
+            app:layout_constraintStart_toEndOf="@+id/tv_course_type"
+            app:layout_constraintTop_toBottomOf="@+id/tl_course" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableTint="@color/colorSecondaryText"
+            android:text="@string/course_all_price"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            app:drawableRightCompat="@drawable/ic_arrow_down"
+            app:layout_constraintEnd_toStartOf="@+id/tv_order_type"
+            app:layout_constraintStart_toEndOf="@+id/tv_difficulty_type"
+            app:layout_constraintTop_toBottomOf="@+id/tl_course" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableTint="@color/colorSecondaryText"
+            android:text="@string/course_default_order"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            app:drawableRightCompat="@drawable/ic_arrow_down"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_price_type"
+            app:layout_constraintTop_toBottomOf="@+id/tl_course" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_course"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_course_type" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.jack.study.utils.StudyUtils" />
+
+        <variable
+            name="vm"
+            type="com.jack.study.ui.StudyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_user_header"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/view_top_bg"
+            app:layout_constraintStart_toStartOf="@+id/view_top_bg"
+            app:layout_constraintTop_toTopOf="@+id/view_top_bg"
+            app:shapeAppearanceOverlay="@style/CircleImageStyle"
+            app:srcCompat="@{vm.obUserInfo.user.logo_url,default=@drawable/ic_default_header}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{vm.obUserInfo.user.username??`Name Of Null`}"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/view_top_bg"
+            app:layout_constraintStart_toStartOf="@+id/view_top_bg"
+            app:layout_constraintTop_toBottomOf="@+id/iv_user_header"
+            tools:text="@string/common_test_str" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_today_study"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/study_today_study"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_top_bg"
+            app:layout_constraintEnd_toStartOf="@+id/tv_total_study"
+            app:layout_constraintStart_toStartOf="@+id/view_top_bg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_study"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/study_total_study"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_today_study"
+            app:layout_constraintEnd_toStartOf="@+id/tv_rank_study"
+            app:layout_constraintStart_toEndOf="@+id/tv_today_study" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rank_study"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/study_rank"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_top_bg"
+            app:layout_constraintEnd_toEndOf="@+id/view_top_bg"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_study" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_today_study_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@{vm.liveStudyInfo.today_study_time}"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_study"
+            app:layout_constraintEnd_toStartOf="@+id/tv_today_study_unit"
+            app:layout_constraintStart_toStartOf="@+id/tv_today_study" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_today_study_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/study_total_study_unit"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_today_study_value"
+            app:layout_constraintStart_toEndOf="@+id/tv_today_study_value" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_study_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@{vm.liveStudyInfo.total_study_time}"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_study"
+            app:layout_constraintEnd_toStartOf="@+id/tv_total_study_unit"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_study" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_total_study_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/study_total_study_unit"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_today_study_value"
+            app:layout_constraintStart_toEndOf="@+id/tv_total_study_value" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rank_study_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@{StudyUtils.rankStr(vm.liveStudyInfo.rank)}"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_today_study"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank_study" />
+
+        <View
+            android:id="@+id/view_center_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_top_bg" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_study"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/colorSecondaryText"
+            app:layout_constraintBottom_toTopOf="@+id/rv_study"
+            app:layout_constraintTop_toTopOf="@+id/view_center_bg"
+            app:tabIndicatorColor="@color/teal_700"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="bottom"
+            app:tabSelectedTextColor="@color/colorPrimaryText">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/study_tab_study_course" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/study_tab_bought_course" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_study"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:adapter="@{vm.adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_study" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

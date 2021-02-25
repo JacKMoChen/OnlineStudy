@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_mine"
+    app:startDestination="@id/mineFragment">
+
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.jack.mine.ui.MineFragment"
+        tools:layout="@layout/fragment_mine"
+        android:label="MineFragment" >
+        <action
+            android:id="@+id/action_mineFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.jack.mine.ui.UserInfoFragment"
+        android:label="UserInfoFragment" >
+        <argument
+            android:name="info"
+            app:argType="com.jack.mine.net.UserInfoRsp" />
+    </fragment>
+</navigation>

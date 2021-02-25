@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="info"
+            type="androidx.databinding.ObservableField&lt;com.jack.mine.widget.ItemSettingBean>" />
+    </data>
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_setting_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{info.iconRes}"
+            app:tint="@{info.iconColor}"
+           />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_setting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{info.title}"
+            android:textColor="@{info.titleColor}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_setting_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="学习卡 免费领" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_setting_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical|end"
+            android:text="@{info.desc}"
+            android:textColor="@{info.descColor}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_setting_arrow"
+            app:layout_constraintStart_toEndOf="@+id/tv_setting_title"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="学习卡 免费领" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_setting_arrow"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:onClick="@{info.arrowListener}"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@{info.arrowRes}"
+            app:tint="@{info.arrowColor}"
+            tools:srcCompat="@drawable/iv_setting_arrow"
+            tools:tint="@color/teal_700" />
+
+    </merge>
+</layout>

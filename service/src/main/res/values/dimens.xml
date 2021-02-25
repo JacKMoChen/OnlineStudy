@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="divider_line_height">0.5dp</dimen>
+    <dimen name="mine_btn_height">48dp</dimen>
+</resources>

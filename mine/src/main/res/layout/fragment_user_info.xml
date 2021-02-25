@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="info"
+            type="com.jack.mine.net.UserInfoRsp" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/toolbarColor"
+            android:minHeight="?android:actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back_black"
+            app:title="">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/mine_personal_info"
+                android:textColor="@color/color_title_black"
+                android:textSize="20sp" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <View
+            android:id="@+id/view_user_info_bg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/ic_mine_user_info_bg"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_user_header"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view_user_info_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_user_info_bg"
+            app:layout_constraintVertical_bias="0.4"
+            app:srcCompat="@{info.logo_url,default=@drawable/ic_default_header}"
+            app:shapeAppearanceOverlay="@style/CircleImageStyle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_change_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/mine_change_header"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_user_header" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/view_user_info_bg">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_prefix_user_name"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/mine_prefix_user_name"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorSecondaryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_prefix_user_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{info.username}"
+                    tools:text="@string/common_test_str" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_line_height"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prefix_user_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_user_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_prefix_employment_company"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/mine_prefix_employment_company"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_user_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_employment_company"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorSecondaryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{info.company}"
+                    app:layout_constraintStart_toEndOf="@+id/tv_prefix_employment_company"
+                    app:layout_constraintTop_toTopOf="@+id/tv_prefix_employment_company"
+                    tools:text="@string/common_test_str" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_line_height"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prefix_employment_company"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_employment_company" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_prefix_position"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/mine_prefix_position"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_employment_company" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_position"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorSecondaryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{info.job}"
+                    app:layout_constraintStart_toEndOf="@+id/tv_prefix_position"
+                    app:layout_constraintTop_toTopOf="@+id/tv_prefix_position"
+                    tools:text="@string/common_test_str" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_line_height"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prefix_position"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_position" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_prefix_working_years"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/mine_prefix_working_years"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_position" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_working_years"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorSecondaryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{info.work_years}"
+                    app:layout_constraintStart_toEndOf="@+id/tv_prefix_working_years"
+                    app:layout_constraintTop_toTopOf="@+id/tv_prefix_working_years"
+                    tools:text="@string/common_test_str" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_line_height"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prefix_working_years"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_working_years" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_prefix_self_introduction"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/mine_prefix_self_introduction"
+                    android:textColor="@color/colorPrimaryText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_working_years" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_self_introduction"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:gravity="start|center_vertical"
+                    android:textColor="@color/colorSecondaryText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@{info.desc}"
+                    app:layout_constraintStart_toEndOf="@+id/tv_prefix_self_introduction"
+                    app:layout_constraintTop_toTopOf="@+id/tv_prefix_self_introduction"
+                    tools:text="@string/common_test_str" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_line_height"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@color/colorDivider"
+                    app:layout_constraintStart_toStartOf="@+id/tv_prefix_self_introduction"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_prefix_self_introduction" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            app:layout_constraintTop_toBottomOf="@+id/card_user_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_margin="30dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="@string/mine_btn_save"
+            android:theme="@style/MineButtonGreenTheme"
+            app:cornerRadius="20dp"
+            android:layout_height="48dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

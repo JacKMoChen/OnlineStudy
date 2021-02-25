@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="course_all">全部</string>
+    <string name="course_all_type">全部类型</string>
+    <string name="course_all_difficulty">全部难度</string>
+    <string name="course_all_price">全部价格</string>
+    <string name="course_default_order">默认排序</string>
+    <string name="course_commercial_combat">商业实战</string>
+    <string name="course_special_good_class">专项好课</string>
+</resources>

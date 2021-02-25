@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="study_today_study">今日学习</string>
+    <string name="study_total_study">总共学习</string>
+    <string name="study_rank">学习排名</string>
+    <string name="study_total_study_unit">分钟</string>
+    <string name="study_tab_study_course">我的学习</string>
+    <string name="study_tab_bought_course">我的课程</string>
+    <string name="study_try_look">试看</string>
+</resources>

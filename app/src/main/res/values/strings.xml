@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">onlineStudy</string>
+    <string name="title_home">首页</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_course">课程</string>
+    <string name="title_study">学习中心</string>
+    <string name="title_mine">我的</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="error_get_fragment">获取fragment错误</string>
+    <string name="error_out_index">ViewPager2的fragments索引</string>
+    <string name="error_out_border">越界</string>
+    <string name="error_viewpager_element_not_found">没找到viewPager元素</string>
+</resources>

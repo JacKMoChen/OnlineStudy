@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.jack.home.ui.HomeFragment"
+        android:label="HomeFragment" />
+
+    <fragment
+        android:id="@+id/navigation_course"
+        android:name="com.jack.course.ui.CourseFragment"
+        android:label="CourseFragment" />
+    <fragment
+        android:id="@+id/navigation_study"
+        android:name="com.jack.study.ui.StudyFragment"
+        android:label="StudyFragment" />
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="com.jack.mine.ui.MineFragment"
+        android:label="MineFragment" />
+</navigation>

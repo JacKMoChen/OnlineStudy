@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.jack.mine.ui.MineViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/view_header_bg"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_user_header"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="12dp"
+                app:layout_constraintStart_toStartOf="@+id/view_header_bg"
+                app:layout_constraintTop_toTopOf="@+id/view_header_bg"
+                app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                app:srcCompat="@{vm.liveInfo.logo_url,default=@drawable/ic_default_header}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@{vm.liveInfo.username??`登录/免费注册`}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_user_header"
+                app:layout_constraintStart_toEndOf="@+id/iv_user_header"
+                app:layout_constraintTop_toTopOf="@+id/iv_user_header" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_line_height"
+                android:layout_marginHorizontal="8dp"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toTopOf="@+id/tv_orders"
+                app:layout_constraintTop_toBottomOf="@+id/iv_user_header" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_orders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:drawableTop="@drawable/ic_mine_orders"
+                android:drawablePadding="10dp"
+                android:text="@string/mine_my_order"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view_header_bg"
+                app:layout_constraintEnd_toStartOf="@+id/tv_coupon"
+                app:layout_constraintStart_toStartOf="@+id/view_header_bg"
+                app:layout_constraintTop_toBottomOf="@+id/iv_user_header" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:drawableTop="@drawable/ic_mine_coupon"
+                android:drawablePadding="10dp"
+                android:text="@string/mine_coupon"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/view_header_bg"
+                app:layout_constraintEnd_toEndOf="@+id/view_header_bg"
+                app:layout_constraintStart_toEndOf="@+id/tv_orders"
+                app:layout_constraintTop_toBottomOf="@+id/iv_user_header" />
+
+            <com.jack.mine.widget.ItemSettingView
+                android:id="@+id/isv_study_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_setting_view_height"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                app:icon="@drawable/ic_mine_study_card"
+                app:layout_constraintTop_toBottomOf="@+id/view_header_bg"
+                app:title="@string/mine_study_card_for_free" />
+
+            <com.jack.mine.widget.ItemSettingView
+                android:id="@+id/isv_distribution_center"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_setting_view_height"
+                android:layout_marginTop="@dimen/divider_line_height"
+                android:background="@color/white"
+                app:icon="@drawable/ic_mine_distribution_center"
+                app:layout_constraintTop_toBottomOf="@+id/isv_study_card"
+                app:title="@string/mine_distribution_center" />
+
+            <com.jack.mine.widget.ItemSettingView
+                android:id="@+id/isv_my_join"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_setting_view_height"
+                android:layout_marginTop="@dimen/divider_line_height"
+                android:background="@color/white"
+                app:icon="@drawable/ic_mine_my_join"
+                app:layout_constraintTop_toBottomOf="@+id/isv_distribution_center"
+                app:title="@string/mine_my_join" />
+
+            <com.jack.mine.widget.ItemSettingView
+                android:id="@+id/isv_lesson_want_learn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_setting_view_height"
+                android:layout_marginTop="@dimen/divider_line_height"
+                android:background="@color/white"
+                app:icon="@drawable/ic_mine_lesson_want_learn"
+                app:layout_constraintTop_toBottomOf="@+id/isv_my_join"
+                app:title="@string/mine_lesson_want_learn" />
+
+            <com.jack.mine.widget.ItemSettingView
+                android:id="@+id/isv_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_item_setting_view_height"
+                android:layout_marginTop="@dimen/divider_line_height"
+                android:background="@color/white"
+                app:icon="@drawable/ic_mine_feedback"
+                app:layout_constraintTop_toBottomOf="@+id/isv_lesson_want_learn"
+                app:title="@string/mine_feedback" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_contract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/mine_github_address"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/isv_feedback" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mine_btn_height"
+                android:layout_margin="30dp"
+                android:text="@string/mine_logout"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="16sp"
+                android:theme="@style/MineButtonTheme"
+                android:visibility="@{vm.liveInfo.username.length()>0?View.VISIBLE:View.GONE}"
+                app:cornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_contract" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="info"
+            type="com.jack.course.net.CourseListRsp.Data" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_course"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            app:srcCompat="@{info.img_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="16sp"
+            android:text="@{info.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_course"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_person_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/ic_account"
+            app:layout_constraintStart_toEndOf="@+id/iv_course"
+            android:tint="@android:color/darker_gray"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_person_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            android:text="@{String.valueOf(info.lessons_played_time)}"
+            app:layout_constraintStart_toEndOf="@+id/iv_person_icon"
+            tools:text="164"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_person_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_person_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_comment_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            android:text="@{String.valueOf(info.comment_count)+`人评价`}"
+            app:layout_constraintStart_toEndOf="@+id/tv_person_num"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_person_icon"
+            app:layout_constraintTop_toTopOf="@+id/iv_person_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_now_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:text="@{`¥`+String.valueOf(info.now_price)}"
+            app:layout_constraintStart_toEndOf="@+id/iv_course"
+            app:layout_constraintTop_toBottomOf="@+id/iv_person_icon"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_cost_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="14sp"
+            android:text="@{`¥`+String.valueOf(info.cost_price)}"
+            app:layout_constraintStart_toEndOf="@+id/tv_now_price"
+            app:layout_constraintTop_toBottomOf="@+id/iv_person_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

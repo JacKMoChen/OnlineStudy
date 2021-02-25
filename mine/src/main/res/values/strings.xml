@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">我的模块</string>
+    <string name="mine_my_join">我的拼团</string>
+    <string name="mine_personal_info">个人信息</string>
+    <string name="mine_change_header">点击更换头像</string>
+    <string name="mine_prefix_user_name">用户名:</string>
+    <string name="mine_prefix_employment_company">就职公司:</string>
+    <string name="mine_prefix_position">职位:</string>
+    <string name="mine_prefix_working_years">工作年限:</string>
+    <string name="mine_prefix_self_introduction">个人介绍:</string>
+    <string name="mine_btn_save">保存</string>
+</resources>

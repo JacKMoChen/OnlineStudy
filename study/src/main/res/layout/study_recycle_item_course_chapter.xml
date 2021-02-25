@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="info"
+            type="com.jack.study.ui.adapter.CourseChapterAdapter.LessonSection" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:tint="@{info.isPlaying?@color/teal_700:@color/colorPrimaryText}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_play" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{info.title}"
+            android:textColor="@{info.isPlaying?@color/teal_700:@color/colorPrimaryText}"
+            android:textSize="14sp"
+            android:gravity="start"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_try"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_play"
+            app:layout_constraintStart_toEndOf="@+id/iv_play"
+            app:layout_constraintTop_toTopOf="@+id/iv_play"
+            tools:text="@string/common_test_str" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_try"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/teal_700"
+            android:textSize="14sp"
+            android:visibility="@{info.tryIt?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_play"
+            android:text="@string/study_try_look" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

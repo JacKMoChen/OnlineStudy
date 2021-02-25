@@ -1,0 +1,16 @@
+if (singleModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+android {
+    defaultConfig {
+        if (singleModule.toBoolean()) {
+            applicationId "com.jack.app.mine"
+        }
+    }
+}
+apply from: '../dependencies.gradle'
+dependencies {
+    implementation project(path: ':service')
+}

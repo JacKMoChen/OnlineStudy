@@ -1,0 +1,17 @@
+if (singleModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+android {
+    defaultConfig {
+        if (singleModule.toBoolean()) {
+            applicationId "com.jack.app.home"
+        }
+    }
+}
+apply from: '../dependencies.gradle'
+dependencies {
+    implementation project(path: ':service')
+    compile 'com.youth.banner:banner:2.1.0'
+}

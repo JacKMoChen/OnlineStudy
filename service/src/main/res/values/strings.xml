@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="server_host_dokit">切换域名</string>
+    <string name="mine_my_order">我的订单</string>
+    <string name="mine_coupon">优惠券</string>
+    <string name="mine_study_card_for_free">学习卡 免费领</string>
+    <string name="mine_distribution_center">分销中心</string>
+    <string name="mine_lesson_want_learn">想学的课</string>
+    <string name="mine_feedback">意见反馈</string>
+    <string name="mine_github_address"><![CDATA[GitHub地址：https://github.com/JacKMoChen]]></string>
+    <string name="mine_logout">退出登录</string>
+    <string name="service_change_host">切换环境</string>
+</resources>
